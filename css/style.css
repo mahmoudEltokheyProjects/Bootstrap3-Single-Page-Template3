@@ -1,0 +1,2031 @@
+/* ****************************** global **************************** */
+* , *:before , *:after 
+{
+    -webkit-box-sizing: border-box ;
+    box-sizing: border-box ;
+    margin: 0 ;
+    padding: 0 ;
+}
+body
+{
+    font-family:  sans-serif ;
+    height: 8000px ;
+    overflow: hidden ;
+}
+/* ----------------------- make color of active link is color: #7cb62f ;  ----------------------- */
+.selected
+{
+    color: #7cb62f ;
+}
+/* ////////////////////////////// common classes ///////////////////////////// */
+/* -------------- overlay ------------- */
+.overlay
+{
+    position: absolute ;
+    left: 0 ;
+    top:  0 ;
+    width: 100% ;
+    height: 100% ;
+    background-color: rgba(0,0,0,0.6);
+}
+/* -------------- container ------------- */
+.containerEl
+{
+    width: 90% ;
+    height: auto ;
+    overflow: hidden ;
+    margin: 5px auto ;
+/*  border: 2px solid #f00 ;    */
+}
+/* -------------- header of section ------------- */
+.section-header
+{
+    width: 60% ;
+    margin: 20px auto ;
+    text-align: center ;
+/*    border: 2px solid #f00 ;    */
+}
+/* -------------- title of section  ------------- */
+.section-header     .section-title
+{
+    display: block ;
+    font-size: 45px ;
+    text-transform: capitalize ;
+    color: #000;
+}
+/* -------------- line under title of section ------------- */
+.section-header     .lineUnderHead
+{
+    display: block ;
+    width: 150px ;
+    height: 4px ;
+    overflow: hidden ;
+    padding: 0px ;
+    margin: 10px auto ;
+    border-radius: 20px ; 
+    background-color: #ddd ;
+} 
+/* -------------- span inside the line under title of section ------------- */
+.section-header     .lineUnderHead      .lineCenter
+{
+    display: block ;
+    width: 60px ;
+    height: 4px ;
+    margin: 0  auto ;
+    background-color: #7cb62f   ;
+}
+/* ----------------- paragraph of header --------------------------- */
+.section-header     .section-desc
+{
+    margin: 10px   auto ;
+    color: #888 ;
+    line-height: 1.5 ;
+    font-size: 20px ;
+} 
+/* ////////////////////////////////////////// header section ////////////////////////////////////////// */
+.header
+{
+    position: fixed;
+    width: 100% ;
+    height: auto    ;
+    z-index: 999 ;
+    color: #fff; 
+/*    border-bottom: 2px solid #ff0 ; */
+}
+/* ------------------- header : navbar : left part : logo --------------------- */
+.header   .logo
+{
+    width: 15% ;
+    float: left ;
+    text-align: left ;
+    height: auto ;
+/*    border: 2px solid #f00 ;    */
+}
+/* **************************** navbar : logo *********************** */
+.header     .logo     .logoH2
+{
+    font-size: 35px ;
+    text-transform: capitalize ;
+    margin: 5px   0  ;
+    color: #fff ;
+/*    border: 2px solid #f00 ;    */
+}
+/*  ******** navbar : links : <ul></ul> ***********  */
+.header    .links    .nav-list
+{
+    list-style: none ;
+    margin : 0  ;
+    padding: 0 ;
+}
+/* ------------------- header : navbar : left part : logo --------------------- */
+.header      .links
+{
+    width: 85% ;
+    float: right ;
+    text-align: right ;
+    height: auto ;
+/*    border: 2px solid #0f0 ;    */
+
+}
+/*  ************** navbar : links : <ul> <li> </li> </ul> *********  */
+.header     .links      .list
+{
+    display: inline-block ; 
+    margin: 20px   0  ; 
+}
+.header        .links     .list     a
+{
+    color: #fff ;
+    padding: 10px ;
+    text-decoration: none ;
+    text-transform: capitalize ; 
+    font-weight: bold ;
+    transition: all 0.2s ease-in-out ;
+}
+.header         .nav-list      .list     a.active
+{
+    color: #7cb62f ;
+}
+.header         .nav-list      .list     a:hover
+{
+    color: #7cb62f ;
+}
+/* ****************   menubar icon **************** */
+.header      input
+{
+	position: fixed ;
+	top: 2.5% ;
+	right: 4% ;
+	display: none ;
+}
+.header    .menubarLabel
+{
+	position: fixed ;
+	top : 2.5% ; 
+	right: 5% ;
+	cursor: pointer;
+	/* from  "0px" to "970px" في الشاشات المحمول  */
+	display: none ;  
+/*	border: 2px solid #ff0;*/
+}
+.menubarLabel   .menubarDiv1  ,
+.menubarLabel   .menubarDiv2  ,
+.menubarLabel   .menubarDiv3  
+{
+	margin: 6px;
+	width: 30px;
+	height: 4px;
+	padding: 1px;
+	background-color: #fff ;
+	/* smooth يحصل التحول بشكل x الي علامة ال menubar icon عشان لما يحصل تحويل لل */
+	transition: 0.4s ;
+}
+input:checked ~  .menubarLabel      .menubarDiv1  
+{
+	transform: rotate(-45deg) translate(-6px, 8px) ;
+}
+input:checked ~  .menubarLabel      .menubarDiv2 
+{
+	opacity: 0 ;
+}
+input:checked ~  .menubarLabel      .menubarDiv3  
+{
+	transform: rotate(45deg) translate(-6px, -8px) ;
+}
+input:checked       ~        .header    
+{
+    background-color: #000 ;
+}
+input:checked       ~        .links    
+{
+	display: block ;
+}
+/* //////////////////////////////// media query : navbar section  ////////////////////////////////// */
+@media( min-width : 0px ) and ( max-width : 995px )
+{
+    .header
+    {
+        background-color: #000 ;
+    }
+    .header      .links  ,
+    .header      .logo
+    {
+        width: 100%; 
+        float: none ;
+    }
+    /*  ******** navbar : links : <ul></ul> ***********  */
+    .header     .links
+    {
+        display: none ;
+        text-align: center ;
+    }
+    /*  ******** navbar : links : <ul><li></li></ul> ***********  */
+    .header      .links    .list
+    {
+        display: block ;
+        margin: 35px  0 ; 
+    }
+    /* ****************   menubar icon **************** */
+    /* /////////////////// menubar icon of navbar /////////////////// */
+	.header       .menubarLabel
+	{
+		display: block ;
+	}
+}
+/* //////////////////////////////////////// home section //////////////////////////////////////////// */
+.home
+{   
+    position: relative ; 
+    height: 600px;
+    background-image: url("../images/bk2.jpeg");
+    background-position: center ;
+    background-repeat: no-repeat ;
+    background-size: cover ;
+}
+/* ----------------- home : overlay layer ------------------- */
+.home      .containerEl    .home-content
+{
+    position: absolute ;
+    left: 50%; 
+    top: 50% ;
+    transform: translate(-50%,-50%);
+}
+     
+.home      .containerEl    .home-content     .home-title
+{
+    color: #fff ;
+    font-size: 45px ;
+    text-transform: capitalize ;
+    margin-bottom: 25px ;
+}
+.home      .containerEl    .home-content     .home-desc    
+{
+    font-size: 18px ;
+    color: #fff ;
+}
+.home      .containerEl    .home-content      .button
+{
+    background-color: #7cb62f ;
+    color: #fff ;
+    width: 150px ;
+    text-align: center ;
+    text-transform: capitalize ;
+    padding: 8px   0px ;
+    margin: 8px ;
+    border-radius: 0 ;
+    transition: 0.2s ease-in-out ;
+}
+.home      .containerEl    .home-content      .button:hover
+{
+    background-color: #fff  ; 
+    color: #7cb62f ;
+}
+/* -------------------------- media query --------------------------- */
+@media( min-width: 0px ) and ( max-width: 995px )
+{
+    .home      .containerEl    .home-content
+    {
+        width: 85% ;
+    }
+    .home      .containerEl    .home-content     .home-title
+    {
+        font-size: 35px ;
+    }
+    .home      .containerEl    .home-content     .home-desc    
+    {
+        font-size: 18px ;
+    }
+    .home      .containerEl    .home-content      .button
+    {
+        width: 150px ;
+        padding: 8px   0px ;
+        margin: 8px ;
+    }        
+}
+/* //////////////////////////////// about section /////////////////////////////////// */
+.about
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+}
+/* ------------------ about content : left part : about-info -------------------- 
+/* --------------------- about content : right part : about-image ---------------- */
+.about         .about-info      ,
+.about         .about-image 
+{
+    margin: 40px 0 ;
+}
+.about        .about-info       .aboutInfoH2
+{
+    text-transform: capitalize ;
+}
+.about         .about-info        .aboutInfoH2       .aboutImfoH2Span
+{
+    color: #7cb62f ;
+}
+.about         .about-info        .aboutInfoPara
+{
+    display: block ;
+    margin: 33px  auto ;
+    font-size: 17px ;
+    line-height: 1.8 ;
+    color: #999 ;
+}
+.about      .about-info        .aboutInfoBtn
+{
+    display: block ;
+    width: 150px ;
+    height: 50px ;
+    overflow: hidden ;
+    padding: 5px ;
+    text-transform: capitalize ;
+    background-color: #7cb62f ;
+    color: #fff ;
+    font-weight: bold ;
+    border: 0 ;
+    outline: 0 ;
+    transition: all 0.2s ease-in-out ;
+}
+.about        .about-info        .aboutInfoBtn:hover
+{
+    background-color: #000  ; 
+    color: #fff ;
+}
+/* --------------------- about content : right part : about-image ---------------- */
+.about      .about-image     img
+{
+    width:100% ;
+}
+/* -------------------------- media query --------------------------- */
+@media( min-width: 0px ) and ( max-width: 995px )
+{
+    /* ------------------- header container --------------------- */
+    .about        .section-header
+    {
+        width: 450px ; 
+    }
+    .about        .about-info       .aboutInfoH2
+    {
+        font-size:  25px ;
+    }
+    .about         .about-info        .aboutInfoPara
+    {
+        font-size: 16px ;
+    }
+    /* ------------------ about content : left part : about-info -------------------- */
+    .about        .section-header       .section-title
+    {
+        font-size:40px ;
+    }
+    .about        .section-header        .section-desc
+    {
+        font-size: 16px ;
+    }
+}
+/* //////////////////////////////// services section /////////////////////////////////// */
+.services
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+    background-color: #f7f7f7 ;
+}
+/* --------------- box ---------------  */
+.services       .services-box
+{
+    background-color: #fff ;
+    text-align: center ;
+    padding: 50px  ;
+    margin : 10px  0 ;
+    cursor: pointer ;
+    transition: all  0.3s  ease-in-out ;
+}
+/* --------------- box : icon ---------------  */
+.services       .services-box       i
+{
+    width: 80px ;
+    height: 80px ;
+    /*  بتاع الصندوق line-height == height عشان الايقونة تكون في منتصف الدائرة بخلي ال    */
+    line-height: 80px ;
+    background-color: #7cb62f ;
+    color: #fff ;
+    border-radius: 50% ;
+    font-size: 30px ; 
+    transition: all  0.3s  ease-in-out ;
+
+}
+.services       .services-box       .servicesBoxHeadH3
+{
+    font-weight: bold ;
+    font-size: 25px ;
+    text-transform: capitalize ;
+    margin: 20px    0   ;  
+    color: #555 ;
+    transition: all  0.3s  ease-in-out ;
+
+}
+.services       .services-box       .servicesBoxPara
+{
+    color: #999 ;
+    transition: all  0.3s  ease-in-out ;
+}
+.services       .services-box:hover     
+{
+    background-color: #7cb62f ;
+}
+.services       .services-box:hover      i
+{
+    background-color: #fff ;
+    color: #7cb62f ;
+}  
+.services       .services-box:hover      .servicesBoxHeadH3 ,
+.services       .services-box:hover      .servicesBoxPara
+{
+    color: #fff ;
+}   
+/* -------------------------- media query --------------------------- */
+@media( min-width: 0px ) and ( max-width: 995px )
+{
+    /* ------------------- header container --------------------- */
+    .services        .section-header
+    {
+        width: 450px ; 
+    }
+    .services        .services-info       .servicesInfoH2
+    {
+        font-size:  25px ;
+    }
+    .services         .services-info        .servicesInfoPara
+    {
+        font-size: 16px ;
+    }
+    /* ------------------ about content : left part : about-info -------------------- */
+    .services        .section-header       .section-title
+    {
+        font-size:40px ;
+    }
+    .services        .section-header        .section-desc
+    {
+        font-size: 16px ;
+    }
+}
+/* //////////////////////////////// statistics section /////////////////////////////////// */
+.statistics
+{
+    position: relative ;
+    width: 100% ;
+    height: 300px ;
+    background-image: url("../images/lap-stat.jpg");
+    background-repeat: repeat;
+    background-position: top center ;
+    background-size: cover ;
+}
+/* --------------- box ---------------  */
+.statistics       .statistics-box
+{
+    text-align: center ;
+    padding: 10px  ;
+    margin-top: 70px ;
+    cursor: pointer ;
+    transition: all  0.3s  ease-in-out ;
+}
+/* --------------- box : icon ---------------  */
+.statistics       .statistics-box       i
+{
+    width: 80px ;
+    height: 80px ;
+    /*  بتاع الصندوق line-height == height عشان الايقونة تكون في منتصف الدائرة بخلي ال    */
+    line-height: 80px ;
+    background-color: #7cb62f ;
+    color: #fff ;
+    border-radius: 50% ;
+    font-size: 40px ; 
+    transition: all  0.3s  ease-in-out ;
+}
+/* ------------------ statistics : counter ----------------- */
+.statistics       .statistics-box       .statisticsBoxSpan
+{
+    display: block ;
+    font-weight: bold ;
+    font-size: 25px ;
+    text-transform: capitalize ;
+    margin: 10px    0   ;  
+    color: #fff ;
+    transition: all  0.3s  ease-in-out ;
+
+}
+.statistics       .statistics-box       .statisticsBoxPara
+{
+    color: #fff ;
+    margin: 0 ;
+    text-transform: capitalize ;
+    font-weight: bold ;
+    transition: all  0.3s  ease-in-out ;
+}
+/* -------------------------- media query --------------------------- */
+@media( min-width: 0px ) and ( max-width: 767px  )
+{
+    .statistics
+    {
+        height: 900px ;
+    }
+    
+    /* --------------- box : icon ---------------  */
+    .statistics       .statistics-box      
+    {
+        margin: 25px  0  ;
+    }
+}
+@media( min-width: 768px ) and ( max-width: 995px )
+{
+    .statistics
+    {
+        height: 500px ;
+    }
+    /* --------------- box : icon ---------------  */
+    .statistics       .statistics-box      
+    {
+        margin: 40px  0  ;
+    }
+}
+/* ////////////////////////////////////////// portfolio section /////////////////////////////////////////// */
+.portfolio
+{
+    width: 100% ;
+    height: auto ;
+    overflow:  hidden ;
+/*    border: 2px solid #00f ;    */
+}
+/* *********************** portfolio : tabs *********************** */
+.portfolio         .portfolioTabs
+{
+    width: 100% ;
+    margin: 20px auto ;
+    text-align: center ;
+/*    border: 2px solid  #f00 ;   */
+}
+.portfolio         .portfolioTabs        button
+{
+    width: 120px ;
+    height: 50px ;
+    padding: 10px ;
+    margin: 10px ;
+    background-color: #333 ;
+    color: #fff ;
+    border-radius: 5px ;
+    text-transform: capitalize ;
+    border: 0 ;
+    outline: 0 ;
+    transition: all  0.3s  ease-in-out ;
+}
+.portfolio         .portfolioTabs        button.active
+{
+    background-color: #7cb62f ;
+}
+.portfolio         .portfolioTabs        button:hover
+{
+    background-color: #7cb62f ;
+}
+/*  *********************** portfolio : gallery *********************  */
+.portfolio      .Images  
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+/*    border: 2px solid #f0f ;    */
+}
+/* .Images  المباشرة الموجودة في العنصر اللي واخد كلاس div هيجيب كل ال */
+.portfolio      .Images     >     div
+{
+    float: left ;
+    width: 23% ;
+    margin: 1% ;  
+    padding: 0 ;
+}
+.portfolio      .Images   >   div   img
+{
+    width: 100% ;
+    height: 220px ;
+}
+/* ************* view more button ************** */
+.portfolio      .viewMore
+{
+    padding: 10px  0 ;
+    text-align: center ;
+    margin-bottom: 30px ;
+/*    border: 2px solid #ff0 ;    */
+}
+.portfolio      .viewMore       .viewMoreBtn
+{
+    width: 200px ;
+    padding: 15px ;
+    text-transform: capitalize ;
+    border: 0 ;
+    outline: 0 ;
+    background-color: #333 ;
+    color: #fff ; 
+    cursor: pointer ;
+    font-size: 18px ;
+    transition: all 0.3s  ease-in-out ;
+}
+.portfolio      .viewMore       .viewMoreBtn:hover
+{
+    background-color: #7cb62f ;
+}
+/* ########################################### media query ########################################### */
+@media( min-width: 0px ) and ( max-width: 995px )
+{
+    
+    /* ------------------- header container --------------------- */
+    .portfolio        .section-header
+    {
+        width: 450px ; 
+    }
+    /* ------------------ about content : left part : about-info -------------------- */
+    .portfolio        .section-header       .section-title
+    {
+        font-size:40px ;
+    }
+    .portfolio        .section-header        .section-desc
+    {
+        font-size: 16px ;
+    }
+}
+/* ------------------- Extra small screen   ------------------- */
+@media( min-width: 0px ) and ( max-width: 676px )
+{
+     /* .Images  المباشرة الموجودة في العنصر اللي واخد كلاس div هيجيب كل ال */
+    .portfolio      .Images     >     div
+    {
+        width: 94% ;
+        margin: 3% ;
+    }
+}
+/* -------------------  small screen   ------------------- */
+@media( min-width: 677px ) and ( max-width: 991px )
+{
+     /* .Images  المباشرة الموجودة في العنصر اللي واخد كلاس div هيجيب كل ال */
+    .portfolio      .Images     >     div
+    {
+        width: 48% ;
+        margin: 1% ;
+    }
+}
+/* ------------------- medium screen   ------------------- */
+@media( min-width: 992px ) and ( max-width: 1200px )
+{
+     /* .Images  المباشرة الموجودة في العنصر اللي واخد كلاس div هيجيب كل ال */
+    .portfolio      .Images     >     div
+    {
+        width: 31% ;
+        margin: 1% ;
+    }
+}
+/* ////////////////////////////////////////// experts section /////////////////////////////////////////// */
+.experts
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+    background-color: #4c4c4c ;
+/*    border : 2px solid #f0f ;   */
+}
+/* ---------------- experts header ------------------ */
+.section-header
+{
+    margin-top: 20px ;
+    color: #fff ;
+}
+.experts    .section-header     .section-title
+{
+    color: #fff ;
+}
+/* --------------------- experts body ------------- */
+.experts    .progressContainer
+{
+    margin-top: 20px ;
+/*    border: 2px solid #ff0 ;    */
+}
+/* ---------------------    circle ----------------- */
+.experts    .progressContainer     .progressCircle
+{
+    position: relative ; 
+    width : 150px ;
+    height: 150px ;
+    background-color: none ;
+    margin: 0   auto ;
+/*    border: 5px solid #f00  ;*/
+}
+/* left , right half يعني ال progressCircle المباشرة الموجودة بداخل العنصر اللي واخد كلاس span هيجيب كل ال */
+.experts    .progressContainer     .progressCircle  >   span
+{
+    position: absolute ;
+    width: 50% ;
+    height: 100% ;
+    overflow: hidden ; 
+    top: 0 ;
+    bottom:  0 ;
+    z-index: 2 ;
+/*    border: 2px solid #0ff ;  */
+}
+/* progress value  :  percentage value */
+.experts    .progressContainer     .progressCircle     .progressValue
+{
+    position: absolute ;
+    width: 90% ;
+    height: 90% ;
+    line-height: 135px ;
+    text-align: center ;
+    top:  5% ;
+    left: 5% ;
+    background-color: none ;
+    color: #fff ;
+    font-size: 25px ;
+    border-radius: 50% ;
+/*    border: 2px solid #fff ;  */
+}
+/* ---------------------  circle title  --------------------- */
+.experts    .progressContainer    .progressTitle       
+{
+    text-align: center ;
+}
+/* --------------------- circle of progressbar ------------------------ */
+.experts    .progressContainer     .progressCircle      .progressBar
+{
+    position: absolute ;
+    width: 100% ;
+    height: 100% ;
+    background-color: none ;
+    border-width: 10px ;
+    border-style: solid ;
+}
+/* ------------------------ blue part of progressbar ------------------------ */
+.experts    .progressContainer     .progressCircle.blue         .progressBar
+{
+    border-color: #049dff ;
+}
+/* ------------------------ yellow part of progressbar ------------------------ */
+.experts    .progressContainer     .progressCircle.yellow       .progressBar
+{
+    border-color: #fdba04 ;
+}
+/* ------------- progressbar : left part of circle ---------- */
+.experts    .progressContainer     .progressCircle      .progressLeft     .progressBar
+{
+    left : 100% ;
+    border-top-right-radius: 80px ; 
+    border-bottom-right-radius: 80px ; 
+    border-left: 0 ;
+    transform-origin: left ;
+}
+/* ------------- progressbar : right part of circle ---------- */
+.experts    .progressContainer     .progressCircle      .progressRight     .progressBar
+{
+    right : 100% ;
+    border-top-left-radius: 80px ; 
+    border-bottom-left-radius: 80px ; 
+    border-right: 0 ;
+    transform-origin: right ;
+/*
+    انه بيقف عند forwardفي زمن 1.8 ث وهيمشي في شكل خطي ومعني rotate 180deg بحيث هيعمل right progress لل animation يحيث يتم عمل load1 keyframe هيتم تطبيق ال 
+    اخر حاجة وصل لها 
+*/
+    animation: load1  1.8s  linear  forwards ;
+}
+.experts    .progressContainer     .progressCircle.blue      .progressLeft     .progressBar
+{
+ /*
+    انه بيقف عند forwardفي زمن 1.8 ث وهيمشي في شكل خطي ومعني rotate 180deg بحيث هيعمل right progress لل animation يحيث يتم عمل load1 keyframe هيتم تطبيق ال 
+    اخر حاجة وصل لهاو
+*/
+    animation: load2  1.5s  linear  forwards   1.8s ;
+   
+}
+/*  load2 بعد ما نفذ عليها ال progressbar حيث هيكمل من اخر نقطة وقف عندها ال yellow part علي ال  animation هينفذ ال  */
+.experts    .progressContainer     .progressCircle.yellow      .progressLeft     .progressBar
+{
+ /*
+    انه بيقف عند forward في زمن 1.8 ث وهيمشي في شكل خطي ومعني rotate 180deg بحيث هيعمل right progress لل animation يحيث يتم عمل load1 keyframe هيتم تطبيق ال 
+    اخر حاجة وصل لها 
+*/
+    animation: load3  1.5s  linear  forwards   1.8s ;
+   
+}
+
+/* ------------- progressbar : left part of circle ---------- */
+.experts    .progressContainer     .progressCircle      .progressLeft
+{
+    left : 0 ;
+/*    border: 2px solid #00f ;    */
+}
+/* ------------- progressbar : right part of circle ---------- */
+.experts    .progressContainer     .progressCircle      .progressRight
+{
+    right : 0 ;
+/*    border: 2px solid #0f0 ;    */
+}
+/* --------------------- circle title -------------------------- */
+.experts        .progressTitle
+{
+    font-size: 20px ;
+    color: #fff ;
+    text-align: center ;
+    text-transform: capitalize ;
+    margin-top: 20px ;
+    font-weight: bold ;
+    padding-bottom: 20px ;
+}
+/* ----------------------- animation of progressbar ------------------------- */
+@keyframes      load1
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(180deg);
+    }
+}
+@keyframes      load2
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(144deg);
+    }
+}
+@keyframes      load3
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(90deg);
+    }
+}
+/* ////////////////////////////////////////// pricing section /////////////////////////////////////////// */
+.pricing
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+    background-color: #f7f7f7;
+/*    border : 2px solid #f0f ;   */
+}
+/* ---------------- pricing header ------------------ */
+.section-header
+{
+    margin-top: 20px ;
+    color: #fff ;
+}
+.pricing    .section-header     .section-title
+{
+    color: #000 ;
+}
+/* ///////////////////////////////////  box  ////////////////////////////////// */
+.pricing    .pricingBox
+{
+    text-align: center ;
+    cursor: pointer ;
+    margin-bottom: 20px  ;   
+    border: 0.5px solid #ccc ;
+    transition : all  0.3s  ease-in-out ;
+}
+/* ########################### row 1 ############################ */
+.pricing    .pricingBox     .pricingBoxRow1
+{
+    display: block ;
+    background-color: #252525 ;
+    padding: 5px 0 ; 
+    transition: all  0.3s  ease-in-out ;
+/*    border: 2px solid #f0f ;    */
+}
+/* -------- row 1 , row2 :  pricingValue , planText -------- */
+.pricing    .pricingBox     .pricingBoxRow1     .pricingValue   ,
+.pricing    .pricingBox     .pricingBoxRow1     .planText
+{
+    display: block ;
+    margin: 8px  0px ;
+    color: #fff ;
+}
+/* -------- row 1 : pricingValue  -------- */
+.pricing    .pricingBox     .pricingBoxRow1     .pricingValue   
+{
+    font-size: 33px;
+    font-weight: bold ;
+}
+/* -------- row 1 : planText  -------- */
+.pricing    .pricingBox     .pricingBoxRow1     .planText   
+{
+    font-size: 16px;
+    text-transform: capitalize ;
+}
+/* -------- row 2 : pricing type  -------- */
+.pricing    .pricingBox     .pricingBoxRow2     span   
+{
+    display: block ;
+    border-bottom: 1px solid #ccc ;
+    padding: 10px ;
+    text-transform: capitalize ;
+    font-size: 25px ;
+}
+/* -------------- row 3 ----------------  */
+.pricing    .pricingBox    .pricingBoxRow3      ul
+{
+    list-style: none; 
+}
+.pricing    .pricingBox    .pricingBoxRow3      ul     li
+{
+    display: block ;
+    margin: 10px 0 ;
+    text-transform: capitalize ;
+    color: #444 ;
+}
+/* -------------- row 4 ----------------  */
+.pricing    .pricingBox     .pricingBoxRow4      .selectBtn
+{
+    width: 100% ;
+    padding: 12px ;
+    background-color: #252525  ;
+    color: #fff ;
+    text-transform: capitalize ;
+    border: 0 ;
+    outline: 0 ;
+    transition: all 0.3s ease-in-out ;
+}
+/* ------------------------ hover in box --------------------- */
+/* هخليه يطلع لفوق pricing box علي ال  hover لما اعمل  */
+.pricing    .pricingBox:hover
+{
+    margin-top: -10px ;
+}
+/*  button وال row1 فهيعطي خلفية لل box علي اي  hover لما اعمل */
+.pricing    .pricingBox:hover   .pricingBoxRow1                   , 
+.pricing    .pricingBox:hover   .pricingBoxRow4      .selectBtn
+{
+    background-color: rgb(116,167,50);
+}
+@media( min-width: 0px ) and ( max-width: 995px )
+{
+    /* ------------------- header container --------------------- */
+    .pricing        .section-header
+    {
+        width: 450px ; 
+    }
+    /* ------------------ about content : left part : about-info -------------------- */
+    .pricing        .section-header       .section-title
+    {
+        font-size:40px ;
+    }
+    .pricing        .section-header        .section-desc
+    {
+        font-size: 16px ;
+    }
+}
+/* //////////////////////////////////////////// our team section //////////////////////////////////////////// */
+/* ---------------------- team : carousel ---------------------- */
+/* ************* item  : row1 : team images ************* */
+.owl-carousel   .item    .teamImg
+{
+    height: 300px ;
+/*    border: 2px solid #ff0 ; */
+}
+.owl-carousel   .item    .teamImg   img
+{
+    width: 100% ;
+    height: 100% ;
+}
+
+/* -------------- row2 : team desc  ----------- */
+.owl-carousel   .item       .teamDesc
+{
+    padding: 8px 0 ;
+    text-align: center ;
+/*    border: 2px solid #ff0 ;    */
+}
+/*  -------------- row2 : team desc : person name and job ----------- */
+.owl-carousel   .item       .teamDesc   .personName     ,
+.owl-carousel   .item       .teamDesc   .personJob
+{
+    display: block ;
+    text-transform: capitalize ;
+}
+/*  -------------- row2 : team desc : person name  ---------- */
+.owl-carousel      .item       .teamDesc   .personName    
+{
+    font-size: 22px ;
+    color: #000 ;
+}
+/*  ---------- row2 : team desc : person name and job ----------- */
+.owl-carousel      .item       .teamDesc   .personJob    
+{
+    color: #555 ;
+}
+/* ---------- row3 : team links : <ul></ul> -------------------- */
+.owl-carousel      .item        .teamLinks
+{
+    position: relative ;
+    text-align: center ;
+    cursor: pointer ;
+    background-color: #252525 ;
+}
+.owl-carousel      .item        .teamLinks           .bkHover
+{
+    position: absolute ;
+    top: 0 ;
+    left: 0 ;
+    display: block ;
+    width: 0% ;
+    height: 100% ;
+    transition: all 0.6s  ease-in-out ;
+    background-color: #7cb62f ;
+}
+.owl-carousel      .item:hover        .bkHover
+{
+    width: 100% ;
+}
+.owl-carousel      .item        .teamLinks      ul
+{
+    /*  green background تظهر فوق ال links عشان كل ال  */
+    position: relative; 
+    z-index: 999 ;
+    list-style: none ;
+}
+.owl-carousel      .item        .teamLinks      ul      li
+{
+    display: inline-block ;
+    margin: 8px ;
+}
+.owl-carousel      .item        .teamLinks      ul      li      a
+{
+    
+    text-decoration: none ;
+    color: #fff ;
+}   
+@media( min-width: 0px ) and ( max-width: 995px )
+{
+    /* ------------------- header container --------------------- */
+    .ourTeam        .section-header
+    {
+        width: 450px ; 
+    }
+    /* ------------------ about content : left part : about-info -------------------- */
+    .ourTeam        .section-header       .section-title
+    {
+        font-size:40px ;
+    }
+    .ourTeam        .section-header        .section-desc
+    {
+        font-size: 16px ;
+    }
+}
+/*  //////////////////////////////////////////// our team section //////////////////////////////////////////// */
+.discover 
+{
+    position: relative ;
+     width:100%;
+    height: 380px ;
+    overflow: hidden ;
+    background-image: url("../images/discover/discover3.jpeg");
+    background-repeat: no-repeat ;
+    background-position: center center ;
+    background-size: cover ;
+    /* تظل الصورة ثابته scroll عشان لما اعمل  */
+    background-attachment: fixed ;  
+/*    border : 2px solid #f0f ;   */
+}
+.discover      .containerEl   .section-header
+{
+    width: 60% ;
+    height: auto ;
+    overflow: hidden ;
+    margin: 80px auto ;
+    text-align: center ;
+    padding: 20px ;
+/*    border: 2px solid #f0f ;    */
+}
+.discover      .containerEl    .section-header      .section-title
+{
+    font-size: 35px ;
+    text-transform: capitalize;
+    margin: 5px ;   
+    color: #fff ;
+}
+.discover      .containerEl    .section-header     .section-desc
+{
+    padding: 10px ;
+    line-height: 1.5 ;
+    font-size: 22px ;
+    color: #bbb ;
+    text-transform: capitalize;
+}
+.discover      .containerEl   .section-header     .discoverBtn
+{
+    background-color: #7cb62f ;
+    color: #fff ;
+    width: 150px ;
+    text-align: center ;
+    text-transform: capitalize ;
+    padding: 8px   0px ;
+    margin: 8px ;
+    border-radius: 0 ;
+    transition: 0.2s ease-in-out ;
+    outline: 0 ;
+    border: 1px solid #7cb62f ;
+}
+.discover      .containerEl    .section-header      .discoverBtn:hover
+{
+    background-color: #fff ;
+    color: #7cb62f ;
+    border: 1px solid #fff ;
+}
+
+/* ------------------------------------------- media query ------------------------------------ */
+@media( min-width:0px ) and ( max-width:980px )
+{
+    .discover
+    {
+        height: 400px ;
+    }
+    .discover      .containerEl   .section-header 
+    {
+        width: 90% ;
+        margin: 80px auto ;
+    }
+    .discover      .containerEl   .section-header     .section-title
+    {
+        font-size: 25px ;
+    }
+    .discover      .containerEl    .section-header     .section-desc
+    {
+/*        width: 100% ;*/
+        font-size: 18px ;
+    }    
+}
+/* //////////////////////////////////////////////////// chooseUs body ////////////////////////////////////////////////////  */
+.chooseUs
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+/*    border: 2px solid #ff0 ;    */
+}
+/* ////////////////////////// chooseUs header ////////////////////////// */
+.chooseUs       .section-header
+{
+    margin: 50px  auto ;        
+/*    border: 2px solid #ff0 ;     */
+}
+/*  ////////////////////////// chooseUs left part ////////////////////////// */
+.chooseUs   .chooseUsLeftPanel
+{
+    height: auto ;
+    overflow: hidden ;  
+    background-color: #fff ;
+/*    border: 2px solid #00f ;    */
+}
+.chooseUs   .chooseUsLeftPanel   ul
+{
+    list-style: none ;
+    background-color: #252525 ;
+    margin: 0 ; 
+    padding: 0 ;
+}
+.chooseUs   .chooseUsLeftPanel   ul     li
+{
+    display: inline-block ;
+    padding: 15px  20px ;
+     color: #fff ;
+    text-decoration: none ;
+    text-transform:  capitalize ;
+    cursor: pointer ;
+}
+.chooseUs   .chooseUsLeftPanel   ul     li.selected
+{
+    background-color: #7cb62f ;
+}
+.chooseUs   .chooseUsLeftPanel     .c_info
+{
+    display: block ;
+    margin: 0px ;
+    border: 2px solid #ccc ;
+}
+/* *********** content  : left part : left part : image *********** */
+.chooseUs   .chooseUsLeftPanel     .c_info    .contentImg  
+{
+    float: left ;
+    width: 40%; 
+    height: 215px  ;
+    overflow: hidden ;
+    margin-right: 10px ;
+/*    border: 2px solid #0ff ;    */
+}
+.chooseUs   .chooseUsLeftPanel     .c_info    .contentImg      img
+{
+    width: 100% ;
+    height: 100% ;
+}
+/* *********** content  : left part : right part : <p></p> *********** */
+.chooseUs   .chooseUsLeftPanel     .c_info    .contentPara
+{
+    padding: 5px ; 
+    color: #555 ;
+}
+/* *********** content  : left part : left part : content2 , contact3 *********** */
+/* بتاعها ويخفي الباقي content هيظهر فقط ال tab في ال link بحيث لما اضغط علي اي  about_content وهظهر فقط ال contact content وال  service content هخفي ال */
+.chooseUs   .chooseUsLeftPanel  .chooseUsLeftContent    .p_services  ,
+.chooseUs   .chooseUsLeftPanel  .chooseUsLeftContent    .p_contact
+{
+    display: none ;
+}
+/*  ////////////////////////// chooseUs right part ////////////////////////// */
+.chooseUs      .chooseUsRight
+{
+    position: relative ;
+    width: 100% ;
+    height: 370px ;
+    overflow: hidden ;
+    background-color: #636363;
+/*    border: 1px solid #f0f ; */
+}
+.chooseUs      .chooseUsRight       .ourSuccessContent
+{
+    position: absolute ;
+    left: 50% ;
+    top: 50% ;
+    width: 70% ;
+    height: auto ;
+    overflow: hidden ;
+    text-align: center ;
+    transform: translate(-50% , -50%);
+/*    border: 1px solid #0ff ;  */
+}
+.chooseUs      .chooseUsRight       .ourSuccessContent      .ourSucessIcon
+{
+    width: 40px ;
+    height: 40px ;
+    line-height: 40px ;
+    margin: 10px   auto ;
+    cursor: pointer ;
+    background-color: #f00 ;
+}
+.chooseUs      .chooseUsRight       .ourSuccessContent      .ourSucessIcon      i
+{
+    color: #fff ;
+}
+.chooseUs      .chooseUsRight       .ourSuccessContent      .ourSucessH3
+{
+    text-transform: capitalize ;
+    color: #fff ;
+}
+.chooseUs      .chooseUsRight       .ourSuccessContent      .ourSucessPara
+{
+    text-transform: capitalize ;
+    color: #fff ;
+}
+/* ------------------------------------------- media query ------------------------------------ */
+@media( min-width:0px ) and ( max-width:980px )
+{
+    .chooseUs      .containerEl   .section-header 
+    {
+        width: 90% ;
+        margin: 80px auto ;
+    }
+    .chooseUs      .containerEl   .section-header     .section-title
+    {
+        font-size: 35px ;
+    }
+    .chooseUs      .containerEl    .section-header     .section-desc
+    {
+/*        width: 100% ;*/
+        font-size: 18px ;
+    }    
+}
+/* /////////////////////////////////////////////// testimonials section //////////////////////////////////////////////////// */
+.testimonials
+{
+    width: 100% ;
+    height: auto;
+    overflow: hidden ;
+    background-color:  #636363 ;
+/*    border: 2px solid #ff0 ;    */
+}
+/* ---------- testimonials : header : title , paragraph ------------ */
+.testimonials      .containerEl   .section-header     .section-title
+{
+    color: #fff;
+}
+.testimonials      .containerEl    .section-header     .section-desc
+{
+    color: #bbb ;
+}    
+/* ///////////////////// testimonials body ///////////////////////////// */
+.testimonials   .testimonialsBody   .item
+{
+    background-color: #141414 ;
+    text-align: center ;
+    padding: 15px   0 ;
+/*    margin: 10px 0 ;     */
+/*    border: 2px solid #f0f ; */
+}
+/* ---------------- owl-carousel : buttons of dots -------------- */
+.owl-theme .owl-dots .owl-dot
+{
+    outline: 0 ;
+    border: 0 ;   
+}
+/* ---------------- owl-carousel : active dot :  اللي انا واقف عندها الان dot دي ال -------------- */
+.owl-theme .owl-dots .owl-dot.active span
+{
+    background: #7cb62f !important ;  
+}
+/* ################ item : image container ################ */
+.testimonials   .testimonialsBody   .item   .testimonialsImg
+{
+    display: block ;
+    width: 100px ;
+    height: 100px ;
+    overflow: hidden ;
+    margin: 10px  auto ;
+    border-radius: 50% ;
+    border: 3px solid #fff ;
+}
+/* ################ item : image container : img ################ */
+.testimonials   .testimonialsBody   .item   .testimonialsImg    img
+{
+    width: 100% ;
+    padding: 0px ;
+    margin: 0 ;
+    border-radius: 50% ;
+}
+/* ################ item : person : name , job ################ */
+.testimonials   .testimonialsBody   .item   .testPersonName ,
+.testimonials   .testimonialsBody   .item   .testPersonJob 
+{
+    color: #fff ;
+    text-transform: capitalize ;
+}
+/* ################ item : person :  job ################ */
+.testimonials   .testimonialsBody   .item   .testPersonJob 
+{
+    color: #999 ;
+    font-size: 16px ;
+}
+/* ################ item : person : stars ################ */
+.testimonials   .testimonialsBody   .item   .testPersonStars
+{
+    color: goldenrod ;
+}
+.testimonials   .testimonialsBody   .item   .testPersonPara
+{
+    color: #999 ;
+    padding: 0 20px ;
+}
+/* ------------------------------------------- media query ------------------------------------ */
+@media( min-width:0px ) and ( max-width:980px )
+{
+    .testimonials      .containerEl   .section-header 
+    {
+        width: 90% ;
+        margin: 50px auto ;
+    }
+    .testimonials      .containerEl   .section-header     .section-title
+    {
+        font-size: 35px ;
+    }
+    .testimonials      .containerEl    .section-header     .section-desc
+    {
+/*        width: 100% ;*/
+        font-size: 18px ;
+    }    
+}
+/* //////////////////////////////////////////// blog section //////////////////////////////////////////// */
+.blog
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+    background-color: #fff ;
+/*    border: 2px solid #f00 ;    */
+}
+/* ---------- blog : header : title , paragraph ------------ */
+.blog      .containerEl   .section-header     .section-title
+{
+    color: #000;
+}
+.blog      .containerEl    .section-header     .section-desc
+{
+    color: #bbb ;
+}    
+/* ///////////////////// blog body ///////////////////////////// */
+.blog   .blogBody  
+{
+/*    border: 2px solid #f00 ;    */
+}
+/* ################ blog 1 ################ */
+.blog   .blogBody   .blogContent
+{
+    margin: 10px  0 ;
+/*    border: 2px solid #00f ;    */
+}
+/* =============== blog image =============== */
+.blog   .blogBody   .blogContent    .blogImg
+{
+    width: 100% ;
+    height: 200px ;
+    overflow: hidden ;
+}
+.blog   .blogBody   .blogContent    .blogImg    img
+{
+    width: 100% ;
+    height: 100% ;
+}
+/* =============== blog info =============== */
+.blog   .blogBody   .blogContent    .blogInfo
+{
+    padding: 10px  0 ; 
+}
+/* =============== blog info : title , paragraph =============== */
+.blog   .blogBody   .blogContent    .blogInfo   .blogTitle  ,
+.blog   .blogBody   .blogContent    .blogInfo   .blogPara  
+{
+    text-transform: capitalize ;
+}
+/* +++++++++++ blog title +++++++++++ */
+.blog   .blogBody   .blogContent    .blogInfo   .blogTitle     h4
+{
+    font-size: 20px  ;   
+}
+/* +++++++++++ blog paragraph +++++++++++ */
+.blog   .blogBody   .blogContent    .blogInfo   .blogPara  
+{
+    color: #666 ;
+}
+.blog   .blogBody   .blogContent    .blogInfo   .blogDateAndComment   .blogDate      i ,
+.blog   .blogBody   .blogContent    .blogInfo   .blogDateAndComment  .blogComment    i
+{
+    color: #7cb62f ;
+}
+/* +++++++++++ blog button +++++++++++  */
+.blog   .blogBody   .blogContent    .blogInfo   .blogBtn    .readMoreBtn
+{
+    padding: 8px  25px ;
+    background-color: #7cb62f ;
+    color: #fff ;
+    text-transform: capitalize ;
+    border: 1px solid #7cb62f ;
+    outline: 0 ;
+    transition: all 0.2s ease-in-out ;
+}
+.blog   .blogBody   .blogContent    .blogInfo   .blogBtn    .readMoreBtn:hover
+{
+    background-color: #fff ;
+    color: #7cb62f ;
+    border: 1px solid #000 ;
+}
+/* ------------------------------------------- media query ------------------------------------ */
+@media( min-width:0px ) and ( max-width:980px )
+{
+    .blog      .containerEl   .section-header 
+    {
+        width: 90% ;
+        margin: 50px auto ;
+    }
+    .blog      .containerEl   .section-header     .section-title
+    {
+        font-size: 35px ;
+    }
+    .blog      .containerEl    .section-header     .section-desc
+    {
+/*        width: 100% ;*/
+        font-size: 18px ;
+    }    
+}
+/*  //////////////////////////////////////////// pleasure section //////////////////////////////////////////// */
+.pleasure
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+    background-color: #252525 ;
+    text-align: center ;
+    padding: 50px  0  ;
+/*    border: 2px solid #ff0 ; */
+}
+
+/* ------- pleasure :  icon -------  */
+.pleasure   .pleausreIcon   
+{
+    display: block ;
+}
+.pleasure   .pleausreIcon       i
+{
+    color: #7cb62f ; 
+    font-size: 40px ;
+}
+/*  ------- pleasure :  paragraph -------  */
+.pleasure   .pleausreDesc
+{
+    width: 70% ;
+    height: auto ;
+    overflow: hidden ; 
+    margin: 10px   auto ;
+    text-align: center ;
+/*    border: 2px solid #f0f ;    */
+}
+/*  ------- pleasure : pleausreDesc : paragraph -------  */
+.pleasure   .pleausreDesc    .pleasurePara
+{
+    padding:  0px ;
+    line-height: 1.8 ;
+    color: #ddd ;
+    text-transform: capitalize ;
+}
+.pleasure   .pleausreDesc    .pleasurePara      .pleasureParaSpan
+{
+    text-transform: capitalize ;
+    color: #7cb62f ;
+}
+/* ------- pleasure :  span : hours ago  ------- */
+.pleasure   .pleausreDesc   .pleausreHourAgo    
+{
+    display: block ;
+    color: #fff ;
+    font-style: italic; 
+    text-transform: capitalize ;
+}
+/* ------------------------------------------- media query ------------------------------------ */
+@media( min-width:0px ) and ( max-width:767px )
+{
+   /*  ------- pleasure :  paragraph -------  */
+    .pleasure   .pleausreDesc
+    {
+        width: 80% ;
+    }
+    /*  ------- pleasure : pleausreDesc : paragraph -------  */
+    .pleasure   .pleausreDesc    .pleasurePara
+    {
+        font-size: 15px ; 
+    }
+ 
+}
+/* //////////////////////////////////////////// nextProject section //////////////////////////////////////////// */
+.nextProject
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+    padding-top: 30px ;
+    padding-bottom: 10px ;
+    background-color: #7cb62f ; 
+/*    border: 2px solid #00f ;    */ 
+}
+/* ********** left part : nextProject paragraph ************* */
+.nextProject    .nextProjectPara
+{
+    text-transform: capitalize ;
+    font-size: 30px ;
+    color: #fff ;
+}
+/* ********** right part : nextProject button *************** */
+.nextProject    .nextProjectBtn     .getStartBtn
+{
+    padding: 10px 30px ;
+    border: 0 ;
+    outline: 0 ;
+    color: #fff ;
+    background-color: #333 ;
+    text-transform: capitalize ;
+    transition: all  0.3s  ease-in-out ;
+}
+.nextProject    .nextProjectBtn     .getStartBtn:hover
+{
+    background-color: #fff ;
+    color: #000 ;
+}
+/* ------------------------------------------- media query ------------------------------------ */
+@media( min-width:0px ) and ( max-width:767px )
+{
+    .nextProject
+    {
+        text-align: center ;
+    }
+    .nextProject    .nextProjectPara
+    {
+        font-size: 25px ;
+    }
+}
+/* //////////////////////////////////////////// contact section //////////////////////////////////////////// */
+.contact
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+    padding-top: 30px ;
+    padding-bottom: 10px ;
+    background-color: #f7f7f7 ; 
+/*    border: 2px solid #00f ;    */ 
+}
+/* ------------------------------ contact-header --------------------- */
+.contact      .containerEl   .section-header 
+{
+    margin: 50px auto ;
+}
+/* ################## left part : contact info ################# */
+.contact    .contactInfo    
+{
+/*    border: 2px solid #ff0 ;    */
+}
+.contact    .contactInfo       .contactInfoH4
+{
+    text-transform: capitalize ;
+    font-size: 30px ;
+}
+.contact    .contactInfo       .contactInfoPara
+{
+    color: #888 ;
+    line-height: 1.6 ;
+}
+/*  //////////////  item  //////////////// */
+.contact    .contactInfo   ul
+{
+    list-style: none ;
+}
+.contact    .contactInfo   ul   li
+{
+    display: block ;
+    margin: 15px  0 ;
+    cursor: pointer ;
+}
+/* --------------------------- contact : icon , address --------------------------- */
+.contact    .contactInfo   ul   li      .contactIcon     , 
+.contact    .contactInfo   ul   li      .contactAddress
+{
+    display: inline-block ;
+}
+.contact    .contactInfo   ul   li      .contactIcon 
+{
+    width: 45px;
+    height: 45px ;
+    line-height: 45px ; 
+    margin-right: 5px ;
+    border-radius: 50% ;
+    background-color: #fff ;
+    color: #7cb62f ;
+    text-align: center ;
+    border: 1px solid #7cb62f ;
+    transition: all 0.3s ease-in-out ;
+/*    border: 2px solid #ff0 ;    */
+}
+.contact    .contactInfo   ul   li      .contactAddress
+{
+    margin-left: 5px ; 
+    text-transform: capitalize ;
+/*    border: 2px solid #f0f ;     */
+}
+.contact    .contactInfo   ul   li      .contactIcon    i
+{
+    font-size: 20px ;
+    margin-bottom: 10px ;
+/*    border: 2px solid #f0f ;      */
+}
+.contact    .contactInfo   ul   li:hover      .contactIcon
+{
+    background-color: #7cb62f ;
+    color: #fff ;
+    border: 1px solid #7cb62f ;
+}
+/* ################################# right part : contact form ################################ */
+.contact    .contactForm
+{
+/*    border: 2px solid #ff0 ;    */
+}
+/* ------------ right part : contact form : name , email , message : placeholder ----------- */
+.contact    .contactForm     form     .nameEmailInputField         input::-webkit-input-placeholder      ,
+.contact    .contactForm     form     .websiteSubjectInputField    input::-webkit-input-placeholder      ,
+.contact    .contactForm     form     .messageTextArea             textarea::-webkit-input-placeholder
+{
+    text-transform: capitalize ;
+}
+/* ++++++++++++++++++ row 1 : name , email inputfield +++++++++++++ */
+.contact    .contactForm    form   .nameEmailInputField     .nameInput  ,
+.contact    .contactForm    form   .nameEmailInputField     .emailInput
+{
+    width: 48% ;
+    padding: 10px ; 
+    margin-bottom: 20px ;
+    outline: 0 ;
+    border: 1px solid #ccc ;
+}
+.contact    .contactForm    form   .nameEmailInputField     .nameInput 
+{
+    float: left ;
+    margin-left: 0 ;
+    margin-right: 1% ;
+}
+.contact    .contactForm    form   .nameEmailInputField     .emailInput 
+{
+    float: right ;
+    margin-left: 1% ;
+    margin-right: 0 ;
+}
+/* ++++++++++++++++++ row 2 : website , subject inputfield ++++++++++++++++++ */
+.contact    .contactForm    form    .websiteSubjectInputField       .websiteInput ,
+.contact    .contactForm    form    .websiteSubjectInputField       .subjectInput 
+{
+    width: 48% ;
+    margin-bottom: 20px ;
+    padding: 10px ; 
+    outline: 0 ;
+    border: 1px solid #ccc ;
+}
+/* ----------------------------- website inputField ---------------- */
+.contact    .contactForm    form   .websiteSubjectInputField     .websiteInput 
+{
+    float: left ;
+    margin-left: 0 ;
+    margin-right: 1% ;
+}
+/* ----------------------------- subject inputField ---------------- */
+.contact    .contactForm    form   .websiteSubjectInputField     .subjectInput 
+{
+    float: right ;
+    margin-left: 1% ;
+    margin-right: 0 ;
+}
+/* ----------------------------- textarea -------------------------- */
+.contact    .contactForm     form     .messageTextArea             textarea
+{
+    width: 100% ;
+    padding: 10px ;
+    outline: 0 ;
+    border: 1px solid #ccc ;
+}
+/*  ----------------------- button :  read more -------------------- */
+.contact    .contactForm     form     .sendMsg      .sendMsgBtn
+{
+    display: block ;
+    margin: 20px auto ;
+    padding: 10px 50px ;
+    text-transform: capitalize ;
+    background-color: #7cb62f ;
+    color: #fff ;
+    border: 1px solid #7cb62f ;
+    outline: 0 ;
+    transition: all  0.3s ease-in-out ;
+}
+.contact    .contactForm     form     .sendMsg      .sendMsgBtn:hover
+{
+    background-color: #fff ;
+    color: #7cb62f ;
+    border: 1px solid #000 ;
+}
+/* ------------------------------------------- media query ------------------------------------ */
+@media( min-width:0px ) and ( max-width:574px )
+{
+    .contact      .containerEl   .section-header 
+    {
+        width: 90% ;
+        margin: 50px auto ;
+    }
+    .contact      .containerEl   .section-header     .section-title
+    {
+        font-size: 35px ;
+    }
+    .contact      .containerEl    .section-header     .section-desc
+    {
+/*        width: 100% ;*/
+        font-size: 18px ;
+    }    
+    /* ++++++++++++++++++ row 1 : name , email inputfield +++++++++++++ */
+    .contact    .contactForm    form   .nameEmailInputField     .nameInput  ,
+    .contact    .contactForm    form   .nameEmailInputField     .emailInput ,
+    /* ++++++++++++++++++ row 2 : website , subject inputfield ++++++++++++++++++ */
+    .contact    .contactForm    form    .websiteSubjectInputField       .websiteInput ,
+    .contact    .contactForm    form    .websiteSubjectInputField       .subjectInput 
+    {
+        width: 100% ;
+    }
+}
+@media( min-width:575px ) and ( max-width:980px )
+{
+    /* ++++++++++++++++++ row 1 : name , email inputfield +++++++++++++ */
+    .contact    .contactForm    form   .nameEmailInputField     .nameInput  ,
+    .contact    .contactForm    form   .nameEmailInputField     .emailInput ,
+    /* ++++++++++++++++++ row 2 : website , subject inputfield ++++++++++++++++++ */
+    .contact    .contactForm    form    .websiteSubjectInputField       .websiteInput ,
+    .contact    .contactForm    form    .websiteSubjectInputField       .subjectInput 
+    {
+        width: 48% ;
+    }
+}
+/* //////////////////////////////////////////// footer1 section //////////////////////////////////////////// */
+.footer1
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+    padding: 40px 0 ;
+    background-color: #333 ;
+    color: #ccc ;
+/*    border: 2px solid #f00 ;    */
+}
+/* **************** footer1 header : 4 blocks ****************  */
+.footer1       .aboutUnifox         ,
+.footer1       .recentPost          ,
+.footer1       .popularSearch       ,
+.footer1       .gallery            
+{
+    margin: 20px 0 ;
+}
+/* **************** footer1 header : h4 ****************  */
+.footer1       .aboutUnifox         .footer1H4  ,
+.footer1       .recentPost          .footer1H4  ,
+.footer1       .popularSearch       .footer1H4  ,
+.footer1       .gallery             .footer1H4
+{
+    text-transform: capitalize ;
+    padding-bottom: 10px ;
+    border-bottom: 1px solid #555 ;
+    margin-bottom: 15px ;
+}
+/* **************** about Unifox : paragraph **************** */
+.footer1       .aboutUnifox     .aboutUnifoxPara
+{
+    text-transform: capitalize ;
+    font-size: 15px ;
+}
+/* **************** about Unifox : ul **************** */
+.footer1       .aboutUnifox      ul
+{
+    list-style: none ;
+}
+.footer1       .aboutUnifox      ul     li
+{
+    display: inline-block ;
+    text-align: center ;
+    padding: 10px 12px ;
+    margin: 5px 2px ;
+}
+.footer1       .aboutUnifox      ul     li      a
+{
+    color: #fff ;
+}
+.footer1       .aboutUnifox      ul     li      a       i
+{
+    width: 20px ;
+    height: 20px ;
+    line-height: 30px ;
+}
+/* ----------- about Unifox : links : facebook ----------- */
+.footer1       .aboutUnifox      ul     li:nth-of-type(1)
+{
+    background-color: #3b5998 ;
+}
+/* ------------ about Unifox : links : twitter ----------- */
+.footer1       .aboutUnifox      ul     li:nth-of-type(2)
+{
+    background-color: #55acee ;
+}
+/* ------------ about Unifox : links : pinterest --------- */
+.footer1       .aboutUnifox      ul     li:nth-of-type(3)
+{
+    background-color: #dd4b39 ;
+}
+/* ---------- about Unifox : links : google-plus ---------- */
+.footer1       .aboutUnifox      ul     li:nth-of-type(4)
+{
+    background-color: #ff0000 ;
+}
+/* ------------ about Unifox : links : linkedin ----------- */
+.footer1       .aboutUnifox      ul     li:nth-of-type(5)
+{
+    background-color: #007bb5 ;
+}
+/* ******************************** recent post ******************************** */
+.footer1       .recentPost      ul
+{
+    list-style: none ;
+}
+.footer1       .recentPost      ul     li
+{
+    margin: 20px  0 ;
+    padding-bottom: 5px ;
+    border-bottom: 1px solid #333 ;
+}
+.footer1       .recentPost      ul     li       a
+{
+    text-decoration: none ;
+    color: #ccc ;
+    text-transform: capitalize ;
+}
+/* ******************************** popular search ******************************** */
+.footer1    .popularSearch      button
+{
+    padding: 10px 12px ;
+    margin: 5px 2px ;
+    background-color: #696969 ;
+    color: #f7f7f7 ;
+    border: 0 ;
+    outline: 0 ;
+}
+/* *********************************** gallery *********************************** */
+.footer1       .gallery
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+/*    border: 2px solid #ff0 ;    */    
+}
+/* //////////// gallery : row1 //////////// */
+.footer1       .gallery         img
+{
+    width: 80px;
+    height: 80px ;
+    margin-bottom: 5px ;
+    padding: 1px ;
+    border: 1px solid #888 ;
+}
+/* //////////////////////////////////////////// footer2 section //////////////////////////////////////////// */
+.footer2
+{
+    width: 100% ;
+    height: auto ;
+    overflow: hidden ;
+    text-align: center ;    
+    padding: 10px  0  ;
+    background-color: #232323 ;
+/*    border: 2px solid #00f ;    */
+}
+/* ---------- left  part ---------- */
+.footer2    .footer2Info    p
+{
+    text-transform: capitalize ;
+    color: #ddd ;
+    font-size: 18px ;
+    margin: 10px  0 ;
+}
+.footer2    .footer2Info    p       i
+{
+    color: #7cb62f ;
+}
+/* ---------- right part ---------- */
+.footer2    .footer2Links   ul
+{
+    list-style: none ;
+    margin: 10px  0 ;
+}
+.footer2    .footer2Links   ul      li
+{
+    display: inline-block ;
+    margin: 0  5px ;
+}
+.footer2    .footer2Links   ul      li      a
+{
+    text-decoration: none ;
+    color: #ddd ;
+    text-transform: capitalize ; 
+    transition: all  0.3s ease-in-out ;
+}
+.footer2    .footer2Links   ul      li      a:hover
+{
+    color: #7cb62f ;
+}
+.footer2    .footer2Links   ul      li      a.active
+{
+    color: #7cb62f ;
+}
+
+/* //////////////////////////// scroll to Top button /////////////////////////////// */
+.scrollTop
+{
+    position: fixed ;
+    bottom: 45px ;
+    right: 10px ;
+    border-radius: 50% ;
+    border: 0 ;    
+    display: none ; 
+}
+.scrollTop      .scrollTopBtn
+{
+    width: 50px ;
+    height: 50px ;
+    line-height: 50px ;
+    border-radius: 50% ;
+    background-color: #7cb62f ;
+    color: #fff ;
+    border: 0 ;  
+    outline: 0 ;
+}
+.scrollTop      .scrollTopBtn       i
+{
+    font-size: 18px ;
+}
+/* ------------------------------------------------ End of Template ------------------------------------------------ */
